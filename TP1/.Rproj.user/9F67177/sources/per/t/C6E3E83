@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1602837560591.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "C6E3E83",
+    "lastKnownWriteTime" : 1344922863608,
+    "last_content_update" : 1602837560591,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "id" : "e52e9ff2640f4f1e8f247a2b359810ae",
+        "name" : "B_distr",
+        "title" : "B_distr"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "object_explorer"
+}

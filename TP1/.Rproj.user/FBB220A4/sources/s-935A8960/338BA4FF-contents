@@ -1,0 +1,39 @@
+BFS_naive <- function(A_init){
+  if(class(A_init) == "list"){
+    A_m <- list2matrix(A_init)
+  }
+  else{
+    A_m <- A_init
+  }
+  
+  n <- nrow(A_m)
+  D <- matrix(0L, nrow=n, ncol=n)
+  
+  for(s in 1:n){
+    d <- 0
+    
+    
+    Ds[s] <- d
+    
+    for(cycle in 1:n+1){
+      list_node <- list()
+      k <- 1
+      d <- d + 1
+      for(i in 1:n){
+        if (Ds[i] == d){
+          list_node[[k]] <- Ds[i]
+          k = k + 1
+        } 
+      }
+      
+      if(length(list_node) < 1){
+        break
+      }
+      
+      for 
+    }
+  }
+    
+  
+  return(Ds)
+}

@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1602838288898.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "577978181",
+    "id" : "C673A1A5",
+    "lastKnownWriteTime" : 1602838309,
+    "last_content_update" : 1602838309874,
+    "path" : "H:/Documents/5A/AC562/TDM1/EX2.R",
+    "project_path" : "EX2.R",
+    "properties" : {
+        "cursorPosition" : "53,11",
+        "scrollLine" : "32"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : true,
+    "source_window" : "",
+    "type" : "r_source"
+}

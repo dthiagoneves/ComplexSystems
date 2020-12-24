@@ -1,0 +1,4 @@
+rm(list=ls())
+cat("\014")
+
+source("EX1.R")
