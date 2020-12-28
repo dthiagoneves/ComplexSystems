@@ -19,3 +19,27 @@ generate_graph <- function(selection, number_of_nodes, probability){
   }
 }
 
+
+
+print_result <- function(vote_matrix, n, t){
+  print("--- Initial Situation ---")
+  print("Red [%]")
+  Red = sum(vote_matrix[,1])/n
+  print(Red * 100)
+  print("Blue [%]")
+  print((1 - Red) * 100)
+
+  print("--- Final Situation ---")
+  print(t)
+  print("Red [%]")
+  Red = sum(vote_matrix[,t])/n
+  print(Red * 100)
+  print("Blue [%]")
+  print((1 - Red) * 100)
+  if(Red > 0.5){
+    cat("RED WON!!\n")
+  }
+  else{
+    cat("BLUE WON!!\n")
+  }
+}

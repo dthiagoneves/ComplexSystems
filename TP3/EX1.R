@@ -8,24 +8,18 @@ f_Vp <- function(p, E){
 
 # Implements a function that returns a matrix where we will have the vote of each person at each moment.
 # The input variables are the graphG which represent social connections, the noise e and the time t.
-vote_evoution <- function(graphG, E, t, Tvis = 10, is_initialised = FALSE, starter = NULL, show_steps = TRUE){
+vote_evoution <- function(graphG, E, t, Tvis = 10, show_steps = TRUE){
   
   #obtenir la matrice d'adjacence graphG
   adj_m <- as_adj_list(graphG)
   dim_v <- length(adj_m)
-  
   layout_G = layout_with_fr(graphG)
   
   
   #initialise la matrice avec Beroulli'law
   vote_m <- matrix(0L, nrow = dim_v, ncol = t)
-  
-  if (is_initialised && !(is.null(starter))){
-    vote_m[,1] <- starter
-  }
-  else {
-    vote_m[,1] <- rbinom(dim_v, 1, 0.5) # bernoulli distribution in r
-  }
+  vote_m[,1] <- rbinom(dim_v, 1, 0.5) # bernoulli distribution in r
+
   
   #boucle pour calculer les votes chaque instant jusq'à t
   for(k in 1:(t-1)){
