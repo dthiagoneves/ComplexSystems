@@ -11,25 +11,44 @@ library(igraph)
 # Graphs Erdos-Renyi of size n = 1000 with different values of the probability p from 0 to 1 with a step of 0.05
 if (execute_flag == 1){
   # For multiple graphs:
-  
-  # for (i in seq(0,1,by=0.2)){
-  #   rand_er <- erdos_renyi(20, i)
-  #   plot(rand_er)
-  #   rand_er <- get_hist(rand_er)
+  # index <- 1
+  # clust_coeff_vector <- rep(0L, 22)
+  # a_length <- rep(0L, 22)
+  # for (i in seq(0,1,by=0.05)){
+  #   rand_er <- erdos_renyi(100, i)
+  #   #plot(rand_er)
+  #   #rand_er <- get_hist(rand_er)
   #   clustering_coefficient <- clustering_coef(rand_er)
   #   cat("Clustering Coefficient (CC) for Erdos-Renyi = ", i, "\nCC = ")
-  #   print(clustering_coefficient)
-  #   Sys.sleep(15)
+  #   #print(clustering_coefficient)
+  #   print(i)
+  #   clust_coeff_vector[index] <- clustering_coefficient[50]
+  #   index <- index + 1
+  #   
+  #   a_length[index] <- average_length(rand_er)
+  #   
   # }
+  # print(length(clust_coeff_vector))
+  # print(length(1:index))
+  # plot(1:index, clust_coeff_vector,
+  #      main="Clustering Coefficient in function of p",
+  #      ylab="Clustering Coefficient",
+  #      xlab = "Link Probability")
+  # 
+  # plot(1:index, a_length,
+  #      main="Average Length in function of p",
+  #      ylab="Average Length",
+  #      xlab = "Link Probability")
+  
   
   i = 0.35
-  rand_er <- erdos_renyi(20, i)
+  rand_er <- erdos_renyi(200, i)
   plot(rand_er)
   
   clustering_coefficient <- clustering_coef(rand_er)
   cat("Clustering Coefficient (ClustC) for Erdos-Renyi = ", i, " ClustC = ")
   print(clustering_coefficient)
-  average_l <- average_length(rand_er)
+  
   cat("--------------------\nAverage Length: \n")
   print(average_l)
   cat("--------------------\n")
@@ -60,10 +79,13 @@ if (execute_flag == 1){
   rand_er <- get_hist(rand_er)
 }
 
-# A graph small-world of size n = 1000 with p = 0:1 and m = 2
+# A graph small-world of size n = 1000 with p = 0.1 and m = 2
 if(execute_flag == 2){
-  rand_ws <- watts_strogats(20, 0.5, 2)
+  rand_ws <- watts_strogats(200, 0.35, 2)
   plot(rand_ws)
+  
+  # rand_ws <- watts_strogats(1000, 0.1, 2)
+  # plot(rand_ws)
   
   clustering_coefficient <- clustering_coef(rand_ws)
   cat("\nClustering Coefficient (ClustC) for Small-World \nClustC = ")
@@ -97,8 +119,11 @@ if(execute_flag == 2){
 
 # Graph Scale-Free
 if(execute_flag == 3){
-  rand_sf <- scale_free(20,5,5)
+  rand_sf <- scale_free(200,5,3)
   plot(rand_sf)
+  
+  # rand_sf <- scale_free(1000,3,2)
+  # plot(rand_sf)
   
   clustering_coefficient <- clustering_coef(rand_sf)
   cat("Clustering Coefficient (ClustC) for Scale-Free \nClustC = ")
@@ -125,8 +150,8 @@ if(execute_flag == 3){
   print(Hub_Node)
   cat("Number of Edges\t= ")
   print(degree(rand_sf)[Hub_Node])
-  cat("Degrees")
-  print(degree(rand_sf))
+  #cat("Degrees")
+  #print(degree(rand_sf))
   
   rand_sf <- get_hist(rand_sf)
 }

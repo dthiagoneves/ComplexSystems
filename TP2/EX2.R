@@ -25,7 +25,7 @@ get_hist <- function(g){
        main="Histogram of the Degree Distribution",
        ylab="Degree Distribution",
        xlab = "Degree",
-       type = "h", lwd = 10)
+       type = "h", lwd = 50/Nv)
   
   return(g)
 }
