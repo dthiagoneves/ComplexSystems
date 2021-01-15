@@ -64,3 +64,59 @@ watts_strogats <- function(n, p, m){
   
   return(g)
 }
+
+
+
+scale_free <- function(n, k, m){
+  # Step 1 : generate a complete graph of size k
+  g <- graph.empty(k, directed = FALSE)
+  
+  for(i in 1:(k-1)){
+    for (j in (i+1):k){
+      g <- add.edges(g, c(i,j))
+    }
+  }
+  
+  # Step 2 : add a vertex and connect it to "m" existing nodes
+  g <- add.vertices(g, 1)
+  Nv <- length(V(g))
+  p <- 1/k
+  flag_added_edge <- 0
+  flag_avoid_double_edge <- 0
+  for(i in 1:m){
+    for(j in 1:Nv){
+      if((runif(1) < p) && (flag_added_edge==0) && (flag_avoid_double_edge!=j)){
+        g <- add.edges(g, c(Nv,j))
+        flag_added_edge <- 1
+        flag_avoid_double_edge <- j
+      }
+    }
+    flag_added_edge <- 0
+  }
+  
+  # Step 3 : repeat step 2 until number of nodes = n
+  
+  for(l in 2:(n-k)){
+    g <- add.vertices(g, 1)
+    Nv <- length(V(g))
+    dgr <- degree(g)
+    p <- dgr[l]/sum(dgr)
+    adj_list <- as_adj_list(g)
+    
+    flag_added_edge <- 0
+    flag_avoid_double_edge <- 0
+    for(i in 1:m){
+      for(j in (k+1):Nv){
+        if(!is.element(j, adj_list[j])){
+          if((runif(1) < p) && (Nv != j)){
+            g <- add.edges(g, c(Nv,j))
+          }
+        }
+      }
+      flag_added_edge <- 0
+    }
+  }
+  
+  return(g)
+}
+
